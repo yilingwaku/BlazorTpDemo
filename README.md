@@ -18,13 +18,23 @@ Vous pouvez télécharger les fichiers depuis Git pour exécuter le jeu, mais il
 
 ---
 
-Création de projet
+- Création de projet
 > dotnet new blazorwasm -o NomProjet
-Exécution :
+- Exécution :
 > dotnet run
-Exécution avec surveillance :
+- Exécution avec surveillance :
 > dotnet watch run
 
+---
+### Créez un lien dans la barre de navigation qui mène à la page Aventure.
+Ajoutez le code suivant dans ./Layout/NavMenu.razor
+```razor
+<div class="nav-item px-3">
+    <NavLink href="Adventure">
+        Adventure
+    </NavLink>
+</div>
+```
 ---
 ### Étape 1 : Structure de base du composant
 Créez un nouveau composant Blazor Adventure.razor dans "/Pages"
