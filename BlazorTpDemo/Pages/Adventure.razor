@@ -47,7 +47,7 @@
 
   @if (!string.IsNullOrEmpty(BattleResult))
   {
-    <p class="result @(TotalPower == BossPower ? "win" : "lose")">
+    <p>
       @BattleResult
     </p>
   }
@@ -71,15 +71,15 @@
 
 
   private List<Item> items = new(){
-new Item { Icon="🗡️", Name="Épée en acier", Weight=5, Power=9, Desc="Une lame robuste et fiable." },
-new Item { Icon="🛡️", Name="Bouclier du gardien", Weight=6, Power=7, Desc="Très solide mais assez lourd." },
-new Item { Icon="🏹", Name="Arc elfique", Weight=3, Power=6, Desc="Léger et d'une grande précision." },
-new Item { Icon="🪄", Name="Bâton magique", Weight=4, Power=8, Desc="Contient une forte énergie mystique." },
-new Item { Icon="💎", Name="Pierre de talent", Weight=2, Power=5, Desc="Renforce la puissance du héros." },
-new Item { Icon="🧪", Name="Potion de force", Weight=1, Power=4, Desc="Augmente temporairement la puissance." },
-new Item { Icon="🔨", Name="Marteau nain", Weight=7, Power=11, Desc="Lourd mais extrêmement puissant." },
-new Item { Icon="🔥", Name="Gants de flamme", Weight=2, Power=6, Desc="Confèrent une maîtrise du feu." },
-new Item { Icon="❄️", Name="Verglas", Weight=1, Power=3, Desc="Contrôler la glace et la neige" }
+    new Item { Icon="🗡️", Name="Épée en acier", Weight=5, Power=9, Desc="Une lame robuste et fiable." },
+    new Item { Icon="🛡️", Name="Bouclier du gardien", Weight=6, Power=7, Desc="Très solide mais assez lourd." },
+    new Item { Icon="🏹", Name="Arc elfique", Weight=3, Power=6, Desc="Léger et d'une grande précision." },
+    new Item { Icon="🪄", Name="Bâton magique", Weight=4, Power=8, Desc="Contient une forte énergie mystique." },
+    new Item { Icon="💎", Name="Pierre de talent", Weight=2, Power=5, Desc="Renforce la puissance du héros." },
+    new Item { Icon="🧪", Name="Potion de force", Weight=1, Power=4, Desc="Augmente temporairement la puissance." },
+    new Item { Icon="🔨", Name="Marteau nain", Weight=7, Power=11, Desc="Lourd mais extrêmement puissant." },
+    new Item { Icon="🔥", Name="Gants de flamme", Weight=2, Power=6, Desc="Confèrent une maîtrise du feu." },
+    new Item { Icon="❄️", Name="Verglas", Weight=1, Power=3, Desc="Contrôler la glace et la neige" }
 };
 
   private int TotalWeight => items.Where(i => i.IsSelected).Sum(i => i.Weight);
@@ -137,5 +137,6 @@ new Item { Icon="❄️", Name="Verglas", Weight=1, Power=3, Desc="Contrôler la
 
     return dp[n, MaxCarry];
   } *@
+
 
 }
