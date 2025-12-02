@@ -1,0 +1,141 @@
+@page "/adventure"
+
+<div>
+  <h2> Adventure </h2>
+
+  <p>Capacité maximum:<strong>@MaxCarry</strong></p>
+  <p>Poids sélectionné:<strong>@TotalWeight</strong></p>
+  <p>Poids restant:<strong>@(MaxCarry - TotalWeight)</strong></p>
+  <p>Puissance:<strong>@TotalPower</strong></p>
+
+  <p style="margin-top:20px;">
+    Puissance requise : <strong>@BossPower</strong>
+  </p>
+
+  <table border="1" cellpadding="5" style="margin-top:20px" width="100%" table-layout="auto;">
+    <thead>
+      <tr>
+        <th>Équipement</th>
+        <th>Poids</th>
+        <th>Puissance</th>
+        <th>Description</th>
+        <th>Choisir</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (Item item in items)
+      {
+        <tr class="@(item.IsSelected ? "selected-row" : "")">
+          <td>@item.Icon @item.Name</td>
+          <td>@item.Weight</td>
+          <td>@item.Power</td>
+          <td>@item.Desc</td>
+          <td>
+            <button @onclick="() => Toggle(item)">
+              @(item.IsSelected ? "Retirer" : "Sélectionner")
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <hr />
+
+  <button @onclick="CheckBattleResult" style="font-size:18px;">Défier le Boss !</button>
+
+  @if (!string.IsNullOrEmpty(BattleResult))
+  {
+    <p class="result @(TotalPower == BossPower ? "win" : "lose")">
+      @BattleResult
+    </p>
+  }
+</div>
+
+
+@code {
+  private class Item
+  {
+    public string Icon { get; set; } = "";
+    public string Name { get; set; } = "";
+    public int Weight { get; set; }
+    public int Power { get; set; }
+    public string Desc { get; set; } = "";
+    public bool IsSelected { get; set; }
+  }
+  private int MaxCarry = 15;
+  private int BossPower = 35;
+  @* private int BossPower => ComputeOptimalPower(); *@
+
+
+
+  private List<Item> items = new(){
+new Item { Icon="🗡️", Name="Épée en acier", Weight=5, Power=9, Desc="Une lame robuste et fiable." },
+new Item { Icon="🛡️", Name="Bouclier du gardien", Weight=6, Power=7, Desc="Très solide mais assez lourd." },
+new Item { Icon="🏹", Name="Arc elfique", Weight=3, Power=6, Desc="Léger et d'une grande précision." },
+new Item { Icon="🪄", Name="Bâton magique", Weight=4, Power=8, Desc="Contient une forte énergie mystique." },
+new Item { Icon="💎", Name="Pierre de talent", Weight=2, Power=5, Desc="Renforce la puissance du héros." },
+new Item { Icon="🧪", Name="Potion de force", Weight=1, Power=4, Desc="Augmente temporairement la puissance." },
+new Item { Icon="🔨", Name="Marteau nain", Weight=7, Power=11, Desc="Lourd mais extrêmement puissant." },
+new Item { Icon="🔥", Name="Gants de flamme", Weight=2, Power=6, Desc="Confèrent une maîtrise du feu." },
+new Item { Icon="❄️", Name="Verglas", Weight=1, Power=3, Desc="Contrôler la glace et la neige" }
+};
+
+  private int TotalWeight => items.Where(i => i.IsSelected).Sum(i => i.Weight);
+  private int TotalPower => items.Where(i => i.IsSelected).Sum(i => i.Power);
+
+  private string BattleResult = "";
+
+
+  private void Toggle(Item item)
+  {
+    item.IsSelected = !item.IsSelected;
+    BattleResult = "";
+  }
+
+  private void CheckBattleResult()
+  {
+    if (TotalWeight > MaxCarry)
+    {
+      BattleResult = "Trop lourd ! Le héros ne peut plus bouger.";
+      return;
+    }
+
+    if (TotalPower == BossPower)
+    {
+      BattleResult = "Victoire parfaite ! Vous avez trouvé la puissance optimale !";
+    }
+    else
+    {
+      BattleResult = $"Puissance insuffisante ({TotalPower} / {BossPower}),vous avez perdu";
+    }
+  }
+
+  @* private int ComputeOptimalPower()
+  {
+    int n = items.Count;
+    int[,] dp = new int[n + 1, MaxCarry + 1];
+
+    for (int i = 1; i <= n; i++)
+    {
+      for (int w = 0; w <= MaxCarry; w++)
+      {
+        if (items[i - 1].Weight > w)
+        {
+          dp[i, w] = dp[i - 1, w];
+        }
+        else
+        {
+          dp[i, w] = Math.Max(
+          dp[i - 1, w],
+          dp[i - 1, w - items[i - 1].Weight] + items[i - 1].Power
+          );
+        }
+      }
+    }
+
+    return dp[n, MaxCarry];
+  } *@
+
+}

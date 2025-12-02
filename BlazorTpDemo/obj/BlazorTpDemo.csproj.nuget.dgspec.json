@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/d/M2_IC/S9/IHM2/BlazorTpDemo/BlazorTpDemo/BlazorTpDemo.csproj": {}
+    "D:\\M2_IC\\S9\\IHM2\\BlazorTpDemo\\BlazorTpDemo\\BlazorTpDemo.csproj": {}
   },
   "projects": {
-    "/mnt/d/M2_IC/S9/IHM2/BlazorTpDemo/BlazorTpDemo/BlazorTpDemo.csproj": {
+    "D:\\M2_IC\\S9\\IHM2\\BlazorTpDemo\\BlazorTpDemo\\BlazorTpDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/d/M2_IC/S9/IHM2/BlazorTpDemo/BlazorTpDemo/BlazorTpDemo.csproj",
+        "projectUniqueName": "D:\\M2_IC\\S9\\IHM2\\BlazorTpDemo\\BlazorTpDemo\\BlazorTpDemo.csproj",
         "projectName": "BlazorTpDemo",
-        "projectPath": "/mnt/d/M2_IC/S9/IHM2/BlazorTpDemo/BlazorTpDemo/BlazorTpDemo.csproj",
-        "packagesPath": "/home/yang/.nuget/packages/",
-        "outputPath": "/mnt/d/M2_IC/S9/IHM2/BlazorTpDemo/BlazorTpDemo/obj/",
+        "projectPath": "D:\\M2_IC\\S9\\IHM2\\BlazorTpDemo\\BlazorTpDemo\\BlazorTpDemo.csproj",
+        "packagesPath": "C:\\Users\\honor\\.nuget\\packages\\",
+        "outputPath": "D:\\M2_IC\\S9\\IHM2\\BlazorTpDemo\\BlazorTpDemo\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\OUTIL\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/yang/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\honor\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -56,13 +63,13 @@
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.4, )",
+              "version": "[9.0.11, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.4, )",
+              "version": "[9.0.11, )",
               "autoReferenced": true
             }
           },
@@ -77,18 +84,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[9.0.4, 9.0.4]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.307/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
